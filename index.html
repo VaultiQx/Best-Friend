@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>শুভ জন্মদিন বন্ধু</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                        cursive: ['Pacifico', 'cursive'],
+                    },
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .blob {
+            position: absolute;
+            filter: blur(40px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: move 10s infinite alternate;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, -20px) scale(1.1); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        .modal-show {
+            opacity: 1 !important;
+        }
+        .modal-show > div {
+            transform: scale(1) !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-cursive text-primary font-bold">Happy Birthday</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary transition font-medium">হোম</a>
+                    <a href="#memories" class="text-gray-600 hover:text-primary transition font-medium">গ্যালারি</a>
+                    <a href="#wish" class="text-gray-600 hover:text-primary transition font-medium">গোপন বার্তা</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+        <div class="blob bg-purple-300 w-64 h-64 md:w-96 md:h-96 rounded-full top-0 left-0 mix-blend-multiply"></div>
+        <div class="blob bg-yellow-300 w-64 h-64 md:w-96 md:h-96 rounded-full top-0 right-0 mix-blend-multiply animation-delay-2000"></div>
+        <div class="blob bg-pink-300 w-64 h-64 md:w-96 md:h-96 rounded-full -bottom-32 left-20 mix-blend-multiply animation-delay-4000"></div>
+
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center md:text-left">
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-slate-800">
+                    শুভ জন্মদিন <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">বেস্ট ফ্রেন্ড!</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
+                    আজকের দিনটা শুধু তোর জন্য! অনেক অনেক আনন্দ, হাসি আর ভালোবাসায় ভরে উঠুক তোর জীবন।
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button onclick="handleSurpriseClick()" class="px-8 py-4 bg-primary text-white rounded-full font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-gift"></i> সারপ্রাইজ দেখুন
+                    </button>
+                    <a href="#wish" class="px-8 py-4 bg-white text-gray-700 border-2 border-gray-200 rounded-full font-bold hover:border-primary hover:text-primary transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-key"></i> গোপন বার্তা
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative hidden md:block">
+                <div class="w-full h-[500px] bg-white rounded-[2rem] shadow-2xl p-4 rotate-3 hover:rotate-0 transition duration-500">
+                    <img src="https://i.postimg.cc/9FN0Hqnf/Happy_Birthday_Instagram_Post_(2).jpg" 
+                         class="w-full h-full object-cover rounded-[1.5rem]" 
+                         alt="Birthday Person Photo"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x500/FF6B6B/ffffff?text=Please+Replace+Me+With+Direct+URL'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Gallery -->
+    <section id="memories" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary font-cursive text-2xl">Memories</span>
+                <h2 class="text-4xl font-bold text-gray-800 mt-2">সেরা মুহূর্তগুলো</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="sm:col-span-2 sm:row-span-2 rounded-2xl overflow-hidden shadow-lg group relative cursor-pointer">
+                    <img src="https://i.postimg.cc/htD9GxDX/1739468991499.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Memory 1">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white font-bold text-xl">সেরা আড্ডা</p>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-lg group relative cursor-pointer">
+                    <img src="https://i.postimg.cc/MH8Ngtyh/Untitled_145.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Memory 2">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg group relative cursor-pointer">
+                    <img src="https://i.postimg.cc/J7JpSbY3/Untitled_1_98.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Memory 3">
+                </div>
+                <div class="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg group relative cursor-pointer">
+                    <img src="https://i.postimg.cc/ydvWB61V/Untitled988.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Memory 4">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wish Section -->
+    <section id="wish" class="py-20 relative">
+        <div class="absolute inset-0 bg-primary/5 -skew-y-3 transform origin-top-left z-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto glass-card rounded-3xl p-8 md:p-12 text-center">
+                <div class="w-20 h-20 bg-white rounded-full mx-auto -mt-20 flex items-center justify-center shadow-lg mb-8">
+                    <i class="fas fa-lock-open text-3xl text-primary"></i>
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">গোপন বার্তা উন্মোচন ✨</h2>
+                <p class="text-gray-600 mb-4 text-sm md:text-base">তোমার বন্ধু তোমার জন্য একটি বিশেষ বার্তা লিখেছে! এটি আনলক করতে নিচের ঘরে তোমার পছন্দের একটি শব্দ (যেমন: জান, বন্ধু, বেস্ট ফেন্ড তোমার প্রিয় রঙ, খাবার বা শখের নাম) লেখো:</p>
+
+                <input type="text" id="reveal-context" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary mb-4 text-center font-bold text-lg" placeholder="তোমার পছন্দের কী-ওয়ার্ড এখানে লেখো">
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                    <button id="reveal-button" onclick="revealMessage()" class="w-full sm:w-auto px-6 py-3 bg-secondary text-white rounded-full font-bold shadow-md hover:bg-teal-500 transition duration-300 flex items-center justify-center gap-2">
+                        🔑 বার্তাটি উন্মোচন করো
+                    </button>
+                    <div id="loading-indicator" class="hidden text-gray-600 font-medium flex items-center gap-2">
+                        <i class="fas fa-spinner fa-spin"></i> বার্তাটি প্রস্তুত করছে...
+                    </div>
+                </div>
+
+                <div class="text-left bg-white/50 p-6 rounded-xl border border-white min-h-[120px] shadow-inner">
+                    <p class="text-lg leading-relaxed text-gray-700 italic" id="generated-wish">
+                        কী-ওয়ার্ডটি লিখে "বার্তাটি উন্মোচন করো" বাটনে ক্লিক করলে তোমার জন্য রাখা বিশেষ বার্তাটি এখানে দেখা যাবে!
+                    </p>
+                </div>
+                
+                <button onclick="handleCakeClick()" class="mt-8 bg-gray-800 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-700 transition shadow-lg w-full md:w-auto">
+                    🎂 কেক কাটো!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-8 text-center">
+        <p class="text-gray-500">Made with ❤️ for Best Friend</p>
+    </footer>
+
+    <!-- Custom Message Modal -->
+    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-[100] p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-sm w-full transform transition duration-300 scale-95 glass-card border-2 border-primary">
+            <i id="modal-icon" class="text-5xl mb-4 text-yellow-600"></i> 
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+            <p id="modal-message" class="text-2xl font-extrabold text-red-600 animate-pulse"></p>
+            <button onclick="hideModal()" class="mt-6 px-6 py-2 bg-primary text-white rounded-full font-bold hover:bg-red-500 transition">ধন্যবাদ</button>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "AIzaSyCAQcI8Wz_xjklo6fC0P2tZAcfSmy9EUFA"; 
+        const LLM_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+
+        function showMessageModal(message, title, iconClass) {
+            const modal = document.getElementById('message-modal');
+            const titleElement = document.getElementById('modal-title');
+            const safeTitle = (title || "").trim(); 
+
+            if (safeTitle === "") {
+                titleElement.style.display = 'none';
+            } else {
+                titleElement.style.display = 'block';
+                titleElement.textContent = title;
+            }
+
+            document.getElementById('modal-message').textContent = message;
+            document.getElementById('modal-icon').className = iconClass;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            requestAnimationFrame(() => {
+                modal.classList.add('modal-show');
+            });
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('message-modal');
+            modal.classList.remove('modal-show');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex'); 
+            }, 300);
+        }
+        
+        function handleSurpriseClick() {
+            showMessageModal(
+                "শুভ জন্মদিন আমার প্রিয় বন্ধু", 
+                "সারপ্রাইজ!", 
+                "fas fa-gift text-5xl text-primary mb-4"
+            );
+            startCelebration(); 
+        }
+
+        function handleCakeClick() {
+            showMessageModal(
+                "কেক কিনার টাকা নেই বন্ধু।", 
+                "", // Empty title to hide header as requested
+                "fas fa-birthday-cake text-5xl text-yellow-600 mb-4"
+            );
+            startCelebration(); 
+        }
+
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status === 429 && i < maxRetries - 1) {
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        continue;
+                    }
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    console.error("Fetch attempt failed:", error);
+                    if (i === maxRetries - 1) throw error;
+                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+
+        async function revealMessage() {
+            const context = document.getElementById('reveal-context').value;
+            const outputElement = document.getElementById('generated-wish');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const revealButton = document.getElementById('reveal-button');
+
+            if (context.trim() === "") {
+                outputElement.textContent = "অনুগ্রহ করে একটি শব্দ লিখে বার্তাটি উন্মোচন করো।";
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden');
+            revealButton.disabled = true;
+            revealButton.style.opacity = 0.5;
+            outputElement.innerHTML = `<i class="fas fa-spinner fa-spin"></i> বার্তাটি প্রস্তুত করছে...`;
+
+            const systemPrompt = "তুমি একজন বিশ্বস্ত বন্ধু, যে জন্মদিনের বন্ধুর জন্য একটি সুন্দর এবং অনুপ্রেরণামূলক বার্তা লিখতে পারো। তোমার বার্তাটি বন্ধুত্বের গুরুত্ব এবং ভবিষ্যতের জন্য শুভকামনা প্রকাশ করবে। বার্তাটি যেন বন্ধুর ইনপুট করা কী-ওয়ার্ড বা থিমের সাথে সম্পর্কিত হয়। বাংলা ভাষায় শুধুমাত্র বার্তাটি লিখবে, কোনো শিরোনাম বা অতিরিক্ত ভূমিকা নয়।";
+            const userQuery = `আমার প্রিয় বন্ধুর জন্য একটি ব্যক্তিগত, গোপন বার্তা তৈরি করো। সে একটি কী-ওয়ার্ড দিয়েছে: ${context}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const response = await fetchWithRetry(`${LLM_API_URL}?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const generatedText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (generatedText) {
+                    outputElement.textContent = generatedText;
+                } else {
+                    outputElement.textContent = "দুঃখিত, বার্তা তৈরি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করো।";
+                }
+
+            } catch (error) {
+                console.error("Gemini LLM API Error:", error);
+                outputElement.textContent = "নেটওয়ার্ক বা API ত্রুটি। বার্তা তৈরি করা যায়নি।";
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                revealButton.disabled = false;
+                revealButton.style.opacity = 1;
+            }
+        }
+
+        function startCelebration() {
+            var duration = 3000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#FF6B6B', '#4ECDC4', '#FFE66D', '#7B68EE']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#FF6B6B', '#4ECDC4', '#FFE66D', '#7B68EE']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
